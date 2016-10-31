@@ -12,12 +12,10 @@ import AVFoundation
 
 var player = AVAudioPlayer()
 
-
 struct song {
     let songImage : UIImage!
     let songName : String!
     let songUrl : String!
-    
 }
 
 class TableViewController: UITableViewController {
@@ -92,7 +90,6 @@ class TableViewController: UITableViewController {
         vc.image = songs[indexPath!].songImage
         vc.name = songs[indexPath!].songName
         vc.link = songs[indexPath!].songUrl
-        
     }
 
 

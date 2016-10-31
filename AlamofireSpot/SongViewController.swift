@@ -30,7 +30,6 @@ class SongViewController: UIViewController {
         backgroundImageView.image = image
         playPauseButton.setTitle("Pause", for: .normal)
         downloadSongFromUrl(downloadUrl: URL(string: link)!)
-
     }
     
     func downloadSongFromUrl(downloadUrl: URL){
