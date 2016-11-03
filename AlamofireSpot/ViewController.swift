@@ -34,6 +34,7 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
         let updatedKeyWords = keyWords?.replacingOccurrences(of: " ", with: "+")
         searchUrl = "https://api.spotify.com/v1/search?q=\(updatedKeyWords!)&type=track"
         callAlamo(url: searchUrl)
+        self.view.endEditing(true)
     }
     
     func callAlamo(url:String) {
