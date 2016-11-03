@@ -18,15 +18,21 @@ struct song {
     let songUrl : String!
 }
 
-class TableViewController: UITableViewController {
-    var searchUrl = "https://api.spotify.com/v1/search?q=shawn+mendes&type=track"
+class TableViewController: UITableViewController, UISearchBarDelegate {
+    
+    var searchUrl = String()
     typealias jsonFetchString = [String:AnyObject]
     var songs = [song]()
-    
+    @IBOutlet var searchBar: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let keyWords = searchBar.text
+        let updatedKeyWords = keyWords?.replacingOccurrences(of: " ", with: "+")
+        searchUrl = "https://api.spotify.com/v1/search?q=\(updatedKeyWords!)&type=track"
         callAlamo(url: searchUrl)
     }
     
